@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include "header.html" %}
+    <title>Bug Tracker Homepage</title>
+</head>
+<body>
+    <h1>Welcome, {{this_user.first_name}}!</h1>
+    <h2>Bugs:</h2>
+    {% for bug in this_user.bugs %}
+    <div class="bugs">
+        <h3>{{bug.title}}</h3>
+        <p>Status: {{bug.status}}
+            <span>Priority: {{bug.priority}}</span>
+            <span>Date: {{bug.date}}</span>
+        </p>
+        <p>Description: {{bug.description}}</p>
+        <div class="links">
+            <a href="/bugs/edit/{{bug.id}}">Edit</a> |
+            <a href="/bugs/delete/{{bug.id}}">Delete</a>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>

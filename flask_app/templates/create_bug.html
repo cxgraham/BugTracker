@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include 'header.html' %}
+    <title>Create Bug</title>
+</head>
+<body>
+    <h1>Welcome, {{this_user.first_name}}!</h1>
+    <form action="/bugs/create", method="post">
+        <h2>New Bug</h2>
+        {% with messages = get_flashed_messages(category_filter = ['register']) %}
+            {% if messages %}
+                <div id="popup">
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+                    <button onclick="popup.remove()">Okay</button>
+                </div>
+            {% endif %}
+        {% endwith %}
+        <input type="hidden" name="user_id" value={{session.user_id}}>
+        <label>
+            <h3>Bug Title:</h3> 
+            <input type="text" name="title">
+        </label>
+        <label>
+            <h3>Description:</h3>
+            <textarea name="description" cols="30" rows="10" placeholder="Add Description"></textarea>
+        </label>
+        <label>
+            <h3>Status Level:</h3>
+            <input type="radio" name="status" value="Open">
+            <label>Open</label>
+            <input type="radio" name="status" value="In Progress">
+            <label>In Progress</label>
+            <input type="radio" name="status" value="Closed">
+            <label>Closed</label>
+        </label>
+        <label>
+            <h3>Priority:</h3>
+            <input type="radio" name="priority" value="1">
+            <label>1</label>
+            <input type="radio" name="priority" value="2">
+            <label>2</label>
+            <input type="radio" name="priority" value="3">
+            <label>3</label>
+        </label>
+        <label>
+            <h3>Date:</h3>
+            <input type="date" name="date">
+        </label>
+        <div></div>
+        <input class="submit" type="submit" value="Create">
+    </form>
+</body>
+</html>
