@@ -1,0 +1,84 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.header{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1{
+    color: rgb(151, 225, 40);
+}
+
+.header span{
+    color: slategray;
+}
+
+.nav-links a{
+    text-decoration: none;
+    color: slategrey;
+}
+
+.main-content{
+    height: 75vh;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.main-content label{
+    margin-top: 10px;
+    display: block;
+    color: slategray;
+}
+
+.welcome{
+    text-align: center;
+    color: slategray;
+}
+
+.welcome h1{
+    font-weight: normal;
+}
+
+.welcome h3{
+    margin-top: 10px;
+    font-weight: normal;
+}
+
+.loginandcreate{
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.register, .login{
+    width: 30%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color:rgb(151, 225, 40);
+    display: flex;
+    justify-content: center;
+}
+
+.register h1, .login h1{
+    text-align: center;
+    color: slategray;
+    font-weight: normal;
+}
+
+.submit{
+    margin-top: 10px;
+    border: 2px solid white;
+    padding: 5px;
+    background-color:rgb(151, 225, 40);
+    color: slategray;
+}

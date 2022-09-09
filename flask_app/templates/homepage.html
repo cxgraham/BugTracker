@@ -6,23 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% include "header.html" %}
     <title>Bug Tracker Homepage</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/homepage.css') }}">
 </head>
 <body>
-    <h1>Welcome, {{this_user.first_name}}!</h1>
-    <h2>Bugs:</h2>
-    {% for bug in this_user.bugs %}
-    <div class="bugs">
-        <h3>{{bug.title}}</h3>
-        <p>Status: {{bug.status}}
-            <span>Priority: {{bug.priority}}</span>
-            <span>Date: {{bug.date}}</span>
-        </p>
-        <p>Description: {{bug.description}}</p>
-        <div class="links">
-            <a href="/bugs/edit/{{bug.id}}">Edit</a> |
-            <a href="/bugs/delete/{{bug.id}}">Delete</a>
-        </div>
+    <div class="welcome">
+        <h1>Welcome, {{this_user.first_name}}!</h1>
     </div>
-    {% endfor %}
+    <div class="bugs-list">
+        <h2>Bug List:</h2>
+        {% for bug in this_user.bugs %}
+        <div class="bugs">
+            <div class="title">
+                <h3>{{bug.title}}</h3>
+            </div>
+            <div class="bug-info">
+                <p>Status: {{bug.status}}
+                    <span>Priority: {{bug.priority}}</span>
+                    <span>Date: {{bug.date}}</span>
+                </p>
+                <p>Description: {{bug.description}}</p>
+            </div>
+            <div class="links">
+                <a href="/bugs/edit/{{bug.id}}">Edit</a> |
+                <a href="/bugs/delete/{{bug.id}}">Delete</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </body>
 </html>

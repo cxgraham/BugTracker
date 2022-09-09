@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
 </head>
 <body>
     <div class="header">
         <h1>Bug<span>Tracker</span></h1>
         <div class="nav-links">
             {% if 'user_id' not in session %}
-                <a href="/">Login</a>
+                <a href="/"><h3>Login</h3></a>
             {% endif %}
             {% if 'user_id' in session %}
             <a href="/bugs/create">Create Bug</a> |

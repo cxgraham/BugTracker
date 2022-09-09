@@ -1,0 +1,37 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.bugs-list h2{
+    margin: 30px;
+    color: slategray;
+}
+
+.bugs{
+    border: 2px solid slategray;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 75%;
+    box-shadow: 2px 2px 2px rgb(55, 54, 54);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.bug-info{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px;
+}
+
+.bug-info span{
+    display: block;
+}
+
+.bug-info p{
+    text-align: left;
+    width: 30%;
+}
