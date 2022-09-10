@@ -6,53 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% include "header.html" %}
     <title>Edit Bug</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/edit_bug.css') }}">
 </head>
 <body>
-    <form action="/bugs/update", method = 'post'>
-        <h1>Edit Bug</h1>
-        {% with messages = get_flashed_messages(category_filter = ['register']) %}
-            {% if messages %}
-                <div id="popup">
-                    {% for message in messages %}
-                    <p>{{message}}</p>
-                    {% endfor %}
-                    <button onclick="popup.remove()">Okay</button>
-                </div>
-            {% endif %}
-        {% endwith %}
-        <input type="hidden" name="user_id" value={{session.user_id}}>
-        <label>
-            <h3>Bug Title:</h3> 
-            <input type="text" name="title" value={{this_bug.title}}>
-        </label>
-        <label>
-            <h3>Description:</h3>
-            <textarea name="description" cols="30" rows="10">{{this_bug.description}}</textarea>
-        </label>
-        <label>
-            <h3>Status Level:</h3>
-            <input type="radio" name="status" value={{this_bug.status}}>
-            <label>Open</label>
-            <input type="radio" name="status" value={{this_bug.status}}>
-            <label>In Progress</label>
-            <input type="radio" name="status" value={{this_bug.status}}>
-            <label>Closed</label>
-        </label>
-        <label>
-            <h3>Priority:</h3>
-            <input type="radio" name="priority" value={{this_bug.priority}}>
-            <label>1</label>
-            <input type="radio" name="priority" value={{this_bug.priority}}>
-            <label>2</label>
-            <input type="radio" name="priority" value={{this_bug.priority}}>
-            <label>3</label>
-        </label>
-        <label>
-            <h3>Date:</h3>
-            <input type="date" name="date" value={{this_bug.date}}>
-        </label>
-        <div></div>
-        <input class="submit" type="submit" value="Update">
-    </form>
+    <div class="welcome">
+        <h1>Welcome, {{this_user.first_name}}!</h1>
+    </div>
+    <div class="edit_bug">
+        <form action="/bugs/update", method = 'post'>
+            <h1>Edit Bug</h1>
+            {% with messages = get_flashed_messages(category_filter = ['register']) %}
+                {% if messages %}
+                    <div id="popup">
+                        {% for message in messages %}
+                        <p>{{message}}</p>
+                        {% endfor %}
+                        <button onclick="popup.remove()">Okay</button>
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <input type="hidden" name="user_id" value={{session.user_id}}>
+            <label>
+                <h3>Bug Title:</h3> 
+                <input type="text" name="title" value={{this_bug.title}}>
+            </label>
+            <label>
+                <h3>Description:</h3>
+                <textarea name="description" cols="30" rows="10">{{this_bug.description}}</textarea>
+            </label>
+            <label>
+                <h3>Status Level:</h3>
+                <input type="radio" name="status" value={{this_bug.status}}>
+                <label class="open">Open</label>
+                <input type="radio" name="status" value={{this_bug.status}}>
+                <label class="in-progress">In Progress</label>
+                <input type="radio" name="status" value={{this_bug.status}}>
+                <label class="closed">Closed</label>
+            </label>
+            <label>
+                <h3>Priority:</h3>
+                <input type="radio" name="priority" value={{this_bug.priority}}>
+                <label>1</label>
+                <input type="radio" name="priority" value={{this_bug.priority}}>
+                <label>2</label>
+                <input type="radio" name="priority" value={{this_bug.priority}}>
+                <label>3</label>
+            </label>
+            <label>
+                <h3>Date:</h3>
+                <input type="date" name="date" value={{this_bug.date}}>
+            </label>
+            <div></div>
+            <input class="submit" type="submit" value="Update">
+        </form>
+    </div>
 </body>
 </html>

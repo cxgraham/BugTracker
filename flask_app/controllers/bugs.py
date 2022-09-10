@@ -19,7 +19,8 @@ def create_bug():
 @app.route('/bugs/edit/<int:id>')
 def edit_bug(id):
     this_bug = bug.Bug.get_bug_by_id(id)
-    return render_template('edit_bug.html', this_bug = this_bug)
+    this_user = user.User.get_user_by_id(session['user_id'])
+    return render_template('edit_bug.html', this_bug = this_bug, this_user = this_user)
 
 
 # UPDATE 
