@@ -1,6 +1,8 @@
 from flask_app import app
 from flask import flash, session
 from flask_app.config.mysqlconnection import connectToMySQL
+from flask_bcrypt import Bcrypt
+bcrypt = Bcrypt(app)
 
 class Bug:
     db = 'bug_tracker'
@@ -19,7 +21,7 @@ class Bug:
 
     # CREATE
     @classmethod
-    def create_bug(cls, data):
+    def create_bug(cls, data):  
         if not cls.validate_bug(data):
             return False
         query = """
@@ -27,7 +29,6 @@ class Bug:
         VALUES (%(title)s, %(description)s, %(status)s, %(priority)s, %(date)s, %(user_id)s)
         ;"""
         bug_id = connectToMySQL(cls.db).query_db(query, data)
-        print(bug_id)
         return bug_id
     
     # READ
@@ -36,7 +37,7 @@ class Bug:
         data = {'id': id}
         query = """
         SELECT * FROM bugs
-        WHERE id = %(id)s
+        WHERE bugs.id = %(id)s
         ;"""
         this_bug = connectToMySQL(cls.db).query_db(query, data)
         if this_bug:
@@ -51,6 +52,7 @@ class Bug:
         query = """
         UPDATE bugs
         SET title = %(title)s, description = %(description)s, status = %(status)s, priority = %(priority)s
+        WHERE bugs.id = %(id)s
         ;"""
         return connectToMySQL(cls.db).query_db(query, data)
 
@@ -60,10 +62,10 @@ class Bug:
         data = {'id': id}
         query = """
         DELETE FROM bugs
-        WHERE id = %(id)s
+        WHERE bugs.id = %(id)s
         ;"""
         return connectToMySQL(cls.db).query_db(query, data)
-
+    
 
     # VALIDATE
     @staticmethod
@@ -73,15 +75,9 @@ class Bug:
             flash('Cannot leave title blank', 'bug')
             is_valid = False
         if (data['description']) == "":
-            flash('Cannot leave description blank', 'bug')
-            is_valid = False
-        if (data['status']) == "":
-            flash('Must choose the bug status', 'bug')
-            is_valid = False
-        if (data['priority']) == "":
-            flash('Must choose a priority', 'bug')
+            flash('Must include details of the bug', 'bug')
             is_valid = False
         if (data['date']) == "":
-            flash('Cannot leave the date blank', 'bug')
+            flash('Must include date of the bug','bug')
             is_valid = False
         return is_valid

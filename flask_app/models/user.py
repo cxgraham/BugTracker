@@ -30,7 +30,6 @@ class User:
         VALUES (%(first_name)s, %(email)s, %(password)s)
         ;"""
         user_id = connectToMySQL(cls.db).query_db(query, data)
-        print(user_id)
         session['user_id'] = user_id
         return user_id
 
@@ -43,7 +42,6 @@ class User:
         SELECT * FROM users WHERE email = %(email)s
         ;"""
         this_user = connectToMySQL(cls.db).query_db(query, data)
-        print(this_user)
         if this_user:
             this_user = cls(this_user[0])
         return this_user
@@ -57,7 +55,6 @@ class User:
         WHERE users.id = %(id)s
         ;"""
         results = connectToMySQL(cls.db).query_db(query, data)
-        print(results)
         if results:
             user = cls(results[0])
             for this_user in results:

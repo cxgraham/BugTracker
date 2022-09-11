@@ -15,7 +15,7 @@
     <div class="create_bug">
         <form action="/bugs/create", method="post">
             <h1>New Bug</h1>
-            {% with messages = get_flashed_messages(category_filter = ['register']) %}
+            {% with messages = get_flashed_messages(category_filter = ['bug']) %}
                 {% if messages %}
                     <div id="popup">
                         {% for message in messages %}
@@ -34,24 +34,23 @@
                 <h3>Description:</h3>
                 <textarea name="description" cols="30" rows="10" placeholder="Add Description"></textarea>
             </label>
-            <label>
+            <label for="status">
                 <h3>Status Level:</h3>
-                <input type="radio" name="status" value="Open">
-                <label class="open">Open</label>
-                <input type="radio" name="status" value="In Progress">
-                <label class="in-progess">In Progress</label>
-                <input type="radio" name="status" value="Closed">
-                <label class="closed">Closed</label>
             </label>
-            <label>
+                <select name="status">
+                    <option value="Open">Open</option>
+                    <option value="In-Progress">In-Progress</option>
+                    <option value="Closed">Closed</option>
+                </select>
+            
+            <label for="priority">
                 <h3>Priority:</h3>
-                <input type="radio" name="priority" value="1">
-                <label>1</label>
-                <input type="radio" name="priority" value="2">
-                <label>2</label>
-                <input type="radio" name="priority" value="3">
-                <label>3</label>
             </label>
+                <select name="priority">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
             <label>
                 <h3>Date:</h3>
                 <input type="date" name="date">

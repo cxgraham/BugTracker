@@ -31,7 +31,8 @@ def update_bug():
         'description': request.form['description'],
         'status': request.form['status'],
         'priority': request.form['priority'],
-        'id': request.form['bugs.id']
+        'date': request.form['date'],
+        'id': request.form['bug.id']
     }
     bug.Bug.edit_bug_by_id(data)
     return redirect ('/homepage')
