@@ -12,9 +12,9 @@
     <div class="welcome">
         <h1>Welcome, {{this_user.first_name}}!</h1>
     </div>
-    <div class="bugs-list">
-        <h2>Bug List:</h2>
-        {% for bug in this_user.bugs %}
+    <div class="projects-list">
+        <h2>Projects List:</h2>
+        {% for project in this_user.projects %}
             {% if bug.status == 'In-Progress' %}
                 <div class="bugs">
                     <div class="title">

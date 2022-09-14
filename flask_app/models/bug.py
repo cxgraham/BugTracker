@@ -16,8 +16,8 @@ class Bug:
         self.date = data['date']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
-        self.user_id = data['user_id']
-        self.creator = None
+        self.project_id = data['project_id']
+
 
     # CREATE
     @classmethod
@@ -25,8 +25,8 @@ class Bug:
         if not cls.validate_bug(data):
             return False
         query = """
-        INSERT INTO bugs (title, description, status, priority, date, user_id)
-        VALUES (%(title)s, %(description)s, %(status)s, %(priority)s, %(date)s, %(user_id)s)
+        INSERT INTO bugs (title, description, status, priority, date, project_id)
+        VALUES (%(title)s, %(description)s, %(status)s, %(priority)s, %(date)s, %(project_id)s)
         ;"""
         bug_id = connectToMySQL(cls.db).query_db(query, data)
         return bug_id

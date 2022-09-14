@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include 'header.html' %}
+    <title>Create Project</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/create_project.css') }}">
+</head>
+<body>
+    <div class="welcome">
+        <h1>Welcome, {{this_user.first_name}}!</h1>
+    </div>
+    <div class="create_project">
+        <form action="/projects/create", method="post">
+            <h1>New Project</h1>
+            {% with messages = get_flashed_messages(category_filter = ['project']) %}
+                {% if messages %}
+                    <div id="popup">
+                        {% for message in messages %}
+                        <p>{{message}}</p>
+                        {% endfor %}
+                        <button onclick="popup.remove()">Okay</button>
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <input type="hidden" name="user_id" value={{session.user_id}}>
+            <label>
+                <h3>Project Title:</h3>
+                <input type="text" name="title">
+            </label>
+            <label>
+                <h3>Details:</h3>
+                <textarea name="details" cols="30" rows="10" placeholder="Add Project Details"></textarea>
+            </label>
+            <input class="submit" type="submit" value="Create Project">
+        </form>
+    </div>
+</body>
+</html>
