@@ -1,0 +1,22 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.create_project{
+    width: 500px;
+    margin: 20px auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(151, 225, 40);
+    border-radius: 10px;
+    color:slategray;
+}
+
+.create_project h1{
+    text-align: center;
+}

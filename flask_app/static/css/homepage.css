@@ -4,12 +4,13 @@
     box-sizing: border-box;
 }
 
-.bugs-list h2{
+.projects-list h2{
     margin: 30px;
     color: slategray;
+    text-align: center;
 }
 
-.bugs{
+.projects{
     border: 2px solid slategray;
     margin: 20px auto;
     padding: 20px;

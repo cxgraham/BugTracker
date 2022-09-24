@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include "header.html" %}
+    <title>View Project</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/view_project.css') }}">
+</head>
+<body>
+    <div class="welcome">
+        <h1>{{this_project.title}}</h1>
+    </div>
+    <div class="main-content">
+        <div class="projects">
+            <h2>Projects</h2>
+            <div class="project">
+                {% for project in this_user.projects %}
+                    <div>
+                        <h3>{{project.title}}</h3>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="bugs">
+            <div class="bug-header">
+                <h2>Bugs</h2>
+                <button>
+                    <a href="/bugs/create">Create Bug</a>
+                </button>
+            </div>
+            {% for bug in this_project.bugs %}
+                <div class="bug">
+                    <div class="title">
+                        <h3>{{bug.title}}</h3>
+                    </div>
+                    <div class="bug-info">
+                        <p>Status: {{bug.status}}
+                            <span>Priority: {{bug.priority}}</span>
+                            <span>Date: {{bug.date}}</span>
+                        </p>
+                        <p>Description: {{bug.description}}</p>
+                    </div>
+                    <div class="links">
+                        <a href="/bugs/edit/{{bug.id}}">Edit</a> |
+                        <a href="/bugs/delete/{{bug.id}}">Delete</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>

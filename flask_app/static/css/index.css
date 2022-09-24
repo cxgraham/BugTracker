@@ -24,6 +24,10 @@
     color: slategrey;
 }
 
+.nav-links a:hover{
+    color:rgb(151, 225, 40);
+}
+
 .main-content{
     height: 75vh;
     margin: 0px;

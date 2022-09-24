@@ -14,11 +14,11 @@ def create_project():
     return redirect(request.referrer)
 
 # READ
-@app.route('/projects/edit/<int:id>')
-def edit_project(id):
+@app.route('/projects/view/<int:id>')
+def view_project(id):
     this_project = project.Project.get_project_by_id(id)
     this_user = user.User.get_user_by_id(session['user_id'])
-    return render_template('edit_project.html', this_project=this_project, this_user=this_user)
+    return render_template('view_project.html', this_project=this_project, this_user=this_user)
 
 # UPDATE 
 @app.route('/bugs/update', methods = ['POST'])

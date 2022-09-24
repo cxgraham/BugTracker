@@ -1,0 +1,76 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.main-content{
+    display: flex;
+    flex-direction: row;
+}
+
+.project, .bug{
+    border: 2px solid slategray;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgb(55, 54, 54);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.project{
+    height: 100%;
+    text-align: center;
+}
+
+.project h3{
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+.projects{
+    margin: 10px;
+    flex: 1;
+    height: 100%;
+}
+
+.projects h2{
+    text-align: center;
+}
+
+.bugs{
+    flex: 3;
+    margin: 20px;
+    height: 100%;
+}
+
+.bugs h1{
+    text-align: center;
+    color:rgb(151, 225, 40)
+}
+
+.bug-header{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 10px;
+}
+
+.bug-header button{
+    padding: 5px;
+    color: rgb(55, 54, 54);
+    background-color: rgb(151, 225, 40);
+    border-radius: 5px;
+    border:rgb(151, 225, 40);
+}
+
+.bug-header button a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.bug-header button a:hover{
+    color: white;
+}
+

@@ -44,12 +44,12 @@ class Project:
             for this_project in results:
                 bug_data = {
                     'id': this_project['bugs.id'],
-                    'title': this_project['title'],
+                    'title': this_project['bugs.title'],
                     'description': this_project['description'],
                     'status': this_project['status'],
                     'priority': this_project['priority'],
                     'date': this_project['date'],
-                    'user_id': this_project['project_id'],
+                    'project_id': this_project['project_id'],
                     'created_at': this_project['bugs.created_at'],
                     'updated_at': this_project['bugs.updated_at']
                 }
