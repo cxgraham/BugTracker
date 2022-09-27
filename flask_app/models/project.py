@@ -27,6 +27,7 @@ class Project:
         VALUES (%(title)s, %(details)s, %(user_id)s)
         ;"""
         project_id = connectToMySQL(cls.db).query_db(query, data)
+        session['project_id'] = project_id
         return project_id
 
     # READ
@@ -74,7 +75,7 @@ class Project:
         data = {'id': id}
         query = """
         DELETE FROM projects
-        WHERE projectss.id = %(id)s
+        WHERE projects.id = %(id)s
         ;"""
         return connectToMySQL(cls.db).query_db(query, data)
 

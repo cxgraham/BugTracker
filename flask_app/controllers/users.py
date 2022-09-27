@@ -20,6 +20,8 @@ def index():
 def homepage():
     if 'user_id' not in session:
         return redirect('/')
+    if 'project_id' in session:
+        session.pop('project_id')
     this_user = user.User.get_user_by_id(session['user_id'])
     return render_template('homepage.html', this_user = this_user)
 

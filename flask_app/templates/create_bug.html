@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="welcome">
-        <h1>Welcome, {{this_user.first_name}}!</h1>
+        <h1>{{this_project.title}}</h1>
     </div>
     <div class="create_bug">
         <form action="/bugs/create", method="post">
@@ -25,7 +25,7 @@
                     </div>
                 {% endif %}
             {% endwith %}
-            <input type="hidden" name="user_id" value={{session.user_id}}>
+            <input type="hidden" name="project_id" value={{session.project_id}}>
             <label>
                 <h3>Bug Title:</h3> 
                 <input type="text" name="title">

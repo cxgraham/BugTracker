@@ -25,9 +25,18 @@
     text-align: center;
 }
 
-.project h3{
+.project a{
+    text-decoration: none;
+}
+
+.project a h3{
     font-weight: normal;
     margin-top: 5px;
+    color: slategray;
+}
+
+.project a h3:hover{
+    color:rgb(151, 225, 40);
 }
 
 .projects{
@@ -38,6 +47,7 @@
 
 .projects h2{
     text-align: center;
+    color: slategray;
 }
 
 .bugs{
@@ -48,18 +58,19 @@
 
 .bugs h1{
     text-align: center;
-    color:rgb(151, 225, 40)
+    color:rgb(151, 225, 40);
 }
 
 .bug-header{
     display: flex;
     justify-content: space-between;
     margin: 0px 10px;
+    color: slategray;
 }
 
 .bug-header button{
     padding: 5px;
-    color: rgb(55, 54, 54);
+    color: slategray;
     background-color: rgb(151, 225, 40);
     border-radius: 5px;
     border:rgb(151, 225, 40);

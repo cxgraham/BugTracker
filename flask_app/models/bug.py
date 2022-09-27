@@ -17,7 +17,7 @@ class Bug:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
         self.project_id = data['project_id']
-
+        self.project = None
 
     # CREATE
     @classmethod
